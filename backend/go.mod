@@ -1,6 +1,6 @@
-module cinemorph-backend
+module your_module_name
 
-go 1.26.0
+go 1.22
 
 require (
 	github.com/mattn/go-sqlite3 v1.14.52 // indirect
