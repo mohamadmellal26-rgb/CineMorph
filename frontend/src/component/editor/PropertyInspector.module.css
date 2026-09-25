@@ -1,0 +1,222 @@
+/* ==========================================
+   Property Inspector Container
+   ========================================== */
+.inspector-container {
+  width: 320px;
+  height: 100%;
+  background-color: #18181c;
+  color: #cccccc;
+  border-left: 1px solid #29292e;
+  display: flex;
+  flex-direction: column;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  user-select: none;
+  box-sizing: border-box;
+}
+
+/* ==========================================
+   Top Main Tabs
+   ========================================== */
+.tabs-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #121214;
+  border-bottom: 1px solid #29292e;
+  height: 40px;
+  flex-shrink: 0;
+  padding: 0 4px;
+}
+
+.tab-btn {
+  background: none;
+  border: none;
+  color: #88888e;
+  font-size: 12px;
+  font-weight: 500;
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.tab-btn:hover {
+  color: #ffffff;
+}
+
+.tab-btn.active {
+  color: #00f2fe; /* CapCut Teal Accent */
+  border-bottom-color: #00f2fe;
+}
+
+/* ==========================================
+   Body Content Container
+   ========================================== */
+.inspector-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 12px;
+}
+
+/* Custom Scrollbar */
+.inspector-body::-webkit-scrollbar {
+  width: 5px;
+}
+.inspector-body::-webkit-scrollbar-track {
+  background: #18181c;
+}
+.inspector-body::-webkit-scrollbar-thumb {
+  background: #2b2b32;
+  border-radius: 3px;
+}
+
+/* Generic Section Content */
+.section-content {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.control-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+}
+
+.control-group label {
+  width: 80px;
+  color: #aaaaaa;
+}
+
+.control-group input[type="range"] {
+  flex: 1;
+  accent-color: #00f2fe;
+}
+
+.control-group span {
+  width: 35px;
+  text-align: right;
+  font-size: 11px;
+  color: #888;
+}
+
+.checkbox-group {
+  font-size: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ==========================================
+   Animation Section & Sub-tabs
+   ========================================== */
+.animation-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sub-tabs {
+  display: flex;
+  background-color: #222226;
+  border-radius: 6px;
+  padding: 2px;
+}
+
+.sub-tab-btn {
+  flex: 1;
+  background: none;
+  border: none;
+  color: #77777e;
+  font-size: 12px;
+  padding: 5px 0;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.sub-tab-btn.active {
+  background-color: #323238;
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Grid of Cards */
+.presets-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.preset-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+}
+
+.preset-thumb {
+  width: 100%;
+  aspect-ratio: 1;
+  background-color: #202024;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid #2d2d34;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.15s;
+}
+
+.preset-card:hover .preset-thumb {
+  border-color: #00f2fe;
+}
+
+.preset-card.selected .preset-thumb {
+  border: 2px solid #00f2fe;
+}
+
+.none-icon {
+  color: #55555e;
+}
+
+.mock-image-bg {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #2c3e50, #4ca1af);
+  opacity: 0.6;
+}
+
+.download-badge {
+  position: absolute;
+  bottom: 4px;
+  right: 4px;
+  background-color: rgba(0, 0, 0, 0.65);
+  color: #ffffff;
+  padding: 2px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.preset-name {
+  font-size: 10px;
+  color: #88888e;
+  margin-top: 4px;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
+}
+
+.preset-card.selected .preset-name {
+  color: #00f2fe;
+}

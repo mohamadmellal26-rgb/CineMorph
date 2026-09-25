@@ -1,0 +1,144 @@
+
+
+.siteHeader {
+  background-color: #ffffff;
+  border-bottom: 1px solid #eaeaea;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+}
+
+.headerContainer {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 24px;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* الشعار */
+.headerLogoLink {
+  text-decoration: none;
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-size: 20px;
+  font-weight: 600;
+  color: #1b1134;
+  letter-spacing: -0.3px;
+}
+
+/* القائمة الرئيسية */
+.headerNav ul {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+}
+
+.navItem {
+  position: relative;
+}
+
+.navLink {
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  color: #3b3b4f;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.navLink:hover {
+  background-color: #f3f2f7;
+  color: #1b1134;
+}
+
+.chevronIcon {
+  transition: transform 0.2s ease;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+/* قسم الأزرار والمستخدم */
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.userProfile {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.userGreeting {
+  color: #1b1134;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.btnLink {
+  text-decoration: none;
+}
+
+.btn {
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.btnSecondary {
+  background-color: transparent;
+  color: #4b28d4;
+  border: 1px solid #4b28d4;
+}
+
+.btnSecondary:hover {
+  background-color: #f5f2fd;
+}
+
+.btnPrimary {
+  background-color: #5c35f5;
+  color: #ffffff;
+  border: 1px solid transparent;
+}
+
+.btnPrimary:hover {
+  background-color: #4b28d4;
+}

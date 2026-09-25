@@ -1,0 +1,375 @@
+/* ==========================================
+   PreviewWindow.css - Dark Theme (Rocketseat/Radix Palette)
+   ========================================== */
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  background-color: #121214;
+  color: #e1e1e6;
+  border: 1px solid #29292e;
+  border-radius: 6px;
+  height: 100%;
+  width: 100%;
+  user-select: none;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.4);
+}
+
+/* شريط التحكم العلوي */
+.preview-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #1a1a1e;
+  padding: 6px 12px;
+  border-bottom: 1px solid #29292e;
+  height: 38px;
+}
+
+.preview-toolbar .toolbar-left,
+.preview-toolbar .toolbar-right {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.preview-title {
+  font-size: 13px;
+  font-weight: 600;
+  color: #e1e1e6;
+}
+
+.preview-badge {
+  background-color: #202024;
+  color: #a8a8b3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  border: 1px solid #29292e;
+}
+
+/* عناصر التحكم في القوائم والأزرار العلوية */
+.preview-select {
+  background-color: #29292e;
+  color: #e1e1e6;
+  border: 1px solid #323238;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  outline: none;
+  cursor: pointer;
+  transition: border-color 0.15s;
+}
+
+.preview-select:focus {
+  border-color: #8257e5;
+}
+
+.preview-zoom-control {
+  display: flex;
+  align-items: center;
+  background-color: #29292e;
+  border-radius: 4px;
+  padding: 2px 6px;
+  gap: 4px;
+}
+
+.preview-zoom-btn {
+  background: none;
+  border: none;
+  color: #a8a8b3;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 3px;
+  transition: color 0.15s, background-color 0.15s;
+}
+
+.preview-zoom-btn:hover {
+  color: #ffffff;
+  background-color: #323238;
+}
+
+.preview-zoom-text {
+  font-size: 11px;
+  color: #e1e1e6;
+  min-width: 38px;
+  text-align: center;
+}
+
+.preview-export-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #8257e5;
+  color: #ffffff;
+  border: none;
+  padding: 5px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.preview-export-btn:hover:not(:disabled) {
+  background-color: #9466ff;
+}
+
+.preview-export-btn:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* مساحة عرض الفيديو (Canvas/Viewport) */
+.preview-viewport {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #09090a;
+  overflow: hidden;
+  padding: 16px;
+}
+
+.preview-canvas-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000000;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.8);
+  border: 1px solid #202024;
+  transform: scale(var(--zoom-scale, 1));
+  transform-origin: center center;
+  aspect-ratio: var(--aspect-ratio, 16 / 9);
+  overflow: hidden;
+  transition: transform 0.15s ease-out;
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.preview-video-element,
+.preview-canvas-wrapper video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+.empty-preview-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  color: #a8a8b3;
+  background-color: #000000;
+  font-size: 13px;
+}
+
+/* طبقة النص المتراكبة فوق الفيديو */
+.text-overlay-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.text-overlay-item {
+  position: absolute;
+  left: var(--pos-x, 50%);
+  top: var(--pos-y, 50%);
+  transform: translate(-50%, -50%);
+  color: #ffffff;
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: grab;
+  user-select: none;
+  pointer-events: auto;
+  border: 2px solid transparent;
+  transition: border-color 0.15s ease;
+}
+
+.text-overlay-item.selected {
+  cursor: grabbing;
+  border-color: #8257e5;
+}
+
+/* الطبقة العلوية فوق الفيديو (Overlay Info) */
+.preview-overlay-info {
+  position: absolute;
+  top: 8px;
+  left: 8px;
+  background-color: rgba(18, 18, 20, 0.75);
+  backdrop-filter: blur(4px);
+  border: 1px solid #29292e;
+  color: #a8a8b3;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: monospace;
+  z-index: 5;
+}
+
+/* شريط التحكم السفلي (Playback Bar) */
+.preview-controls {
+  display: flex;
+  flex-direction: column;
+  background-color: #1a1a1e;
+  border-top: 1px solid #29292e;
+  padding: 8px 12px;
+  gap: 8px;
+}
+
+/* شريط التمرير (Scrubber Slider) */
+.preview-scrubber {
+  width: 100%;
+  height: 4px;
+  background-color: #29292e;
+  border-radius: 2px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+  transition: height 0.15s;
+}
+
+.preview-scrubber:hover {
+  height: 6px;
+}
+
+.preview-scrubber::-webkit-slider-thumb {
+  appearance: none;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #8257e5;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+.preview-scrubber::-moz-range-thumb {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background-color: #8257e5;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.15s, transform 0.15s;
+}
+
+.preview-scrubber::-webkit-slider-thumb:hover,
+.preview-scrubber::-moz-range-thumb:hover {
+  background-color: #9466ff;
+  transform: scale(1.2);
+}
+
+.preview-controls-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.preview-btn {
+  background-color: #29292e;
+  color: #e1e1e6;
+  border: none;
+  padding: 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.preview-btn:hover {
+  background-color: #323238;
+  color: #ffffff;
+}
+
+.preview-btn.play-btn {
+  background-color: #8257e5;
+  color: #ffffff;
+  padding: 8px;
+  border-radius: 50%;
+}
+
+.preview-btn.play-btn:hover {
+  background-color: #9466ff;
+}
+
+/* الوقت */
+.preview-time-display {
+  font-size: 11px;
+  color: #a8a8b3;
+  font-family: monospace;
+  margin-left: 8px;
+}
+
+/* التحكم بالصوت */
+.preview-volume-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.preview-volume-slider {
+  width: 60px;
+  height: 4px;
+  background-color: #29292e;
+  border-radius: 2px;
+  appearance: none;
+  outline: none;
+  cursor: pointer;
+}
+
+.preview-volume-slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #a8a8b3;
+  cursor: pointer;
+}
+
+.preview-volume-slider::-moz-range-thumb {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: #a8a8b3;
+  border: none;
+  cursor: pointer;
+}
+
+.preview-volume-slider::-webkit-slider-thumb:hover,
+.preview-volume-slider::-moz-range-thumb:hover {
+  background-color: #ffffff;
+}
+
+.spin-icon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}

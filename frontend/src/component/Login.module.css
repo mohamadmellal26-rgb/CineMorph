@@ -1,0 +1,334 @@
+/* Login.module.css */
+
+/* التنسيق العام للصفحة مقسومة لجزأين */
+.CineMorphLoginWrapper {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  font-family: 'Cairo', sans-serif, system-ui;
+  direction: rtl;
+  background-color: #ffffff;
+}
+
+/* القسم الأيسر (خيارات الدخول) */
+.loginLeftSection {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  background-color: #ffffff;
+}
+
+.loginContentBox {
+  width: 100%;
+  max-width: 440px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 80vh;
+}
+
+.loginHeaderGroup h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #111827;
+  margin-bottom: 0.5rem;
+}
+
+.loginHeaderGroup p {
+  color: #4b5563;
+  font-size: 0.95rem;
+  margin-bottom: 1.5rem;
+}
+
+/* رسائل الخطأ والنجاح */
+.errorMessage {
+  color: #ef4444;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+.successMessage {
+  color: #10b981;
+  margin-bottom: 1rem;
+  font-size: 0.9rem;
+}
+
+/* نموذج الإدخال */
+.authFormContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  text-align: right;
+}
+
+.formGroup label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: #374151;
+}
+
+.authInput {
+  padding: 0.75rem 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  background-color: #f9fafb;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  direction: ltr;
+  text-align: right;
+}
+
+.authInput:focus {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+  background-color: #ffffff;
+}
+
+.authSubmitBtn {
+  background-color: #7c3aed;
+  color: #ffffff;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.85rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 0.25rem;
+}
+
+.authSubmitBtn:hover {
+  background-color: #6d28d9;
+}
+
+/* أزرار خيارات التسجيل */
+.loginOptionsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.authOptionBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  width: 100%;
+  padding: 0.85rem 1rem;
+  background-color: #f3f4f6;
+  border: 1px solid #e5e7eb;
+  border-radius: 0.5rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: #1f2937;
+  cursor: pointer;
+  transition: background-color 0.2s, border-color 0.2s;
+}
+
+.authOptionBtn:hover {
+  background-color: #e5e7eb;
+  border-color: #d1d5db;
+}
+
+.authIcon {
+  flex-shrink: 0;
+}
+
+.authDivider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #9ca3af;
+  margin: 1rem 0;
+  font-size: 0.85rem;
+}
+
+.authDivider::before,
+.authDivider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.authDivider::before {
+  margin-left: 0.75rem;
+}
+
+.authDivider::after {
+  margin-right: 0.75rem;
+}
+
+/* زر التبديل بين الدخول والإنشاء */
+.toggleAuthMode {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.toggleAuthMode p {
+  font-size: 0.9rem;
+  color: #666;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: #7c3aed;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+/* روابط التذييل السفلي */
+.loginFooterLinks {
+  margin-top: 2rem;
+  font-size: 0.8rem;
+  color: #6b7280;
+}
+
+.linksRow {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.linksRow a {
+  color: #7c3aed;
+  text-decoration: none;
+}
+
+.linksRow a:hover {
+  text-decoration: underline;
+}
+
+.copyrightRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #4b5563;
+  margin-top: 0.5rem;
+}
+
+.copyrightRow a {
+  color: #111827;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.copyText {
+  color: #6b7280;
+}
+
+/* القسم الأيمن (الخلفية البنفسجية الترويجية) */
+.loginRightSection {
+  flex: 1;
+  background: linear-gradient(135deg, #c084fc 0%, #a855f7 50%, #8b5cf6 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 3rem;
+  color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.promoContainer {
+  max-width: 480px;
+  text-align: right;
+}
+
+.promoBrand {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  font-weight: 600;
+}
+
+.brandName {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.promoContainer h2 {
+  font-size: 2.25rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.promoContainer p {
+  font-size: 1rem;
+  opacity: 0.9;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+}
+
+/* معاينة الجرافيكس المصغرة بالقسم الأيمن */
+.promoGraphicsPreview {
+  position: relative;
+  height: 200px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 1rem;
+  backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.mainPreview {
+  width: 60%;
+  height: 60%;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.playIcon {
+  font-size: 2rem;
+  color: white;
+}
+
+.floatingBadge {
+  position: absolute;
+  padding: 0.5rem 1rem;
+  border-radius: 2rem;
+  font-weight: bold;
+  font-size: 0.9rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+}
+
+.badgeYes {
+  top: 20px;
+  right: 20px;
+  background: #ffffff;
+  color: #111827;
+}
+
+.badgeCloud {
+  bottom: 20px;
+  left: 20px;
+  background: #ffffff;
+}
+
+/* التجاوب مع الشاشات الصغيرة (Responsive) */
+@media (max-width: 768px) {
+  .CineMorphLoginWrapper {
+    flex-direction: column-reverse;
+  }
+  .loginRightSection {
+    padding: 2rem 1rem;
+  }
+}

@@ -1,0 +1,383 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+.featuresSection {
+  font-family: 'Inter', sans-serif;
+  background-color: #ffffff;
+  color: #111113;
+  padding: 80px 24px;
+  display: flex;
+  justify-content: center;
+}
+
+.featuresContainer {
+  max-width: 1280px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+}
+
+/* شبكة البطاقات */
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+}
+
+.featureCard {
+  background-color: #f9f9fb;
+  border-radius: 20px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.featureCard:hover {
+  border-color: rgba(0, 0, 0, 0.2);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.05);
+}
+
+/* قسم الرسومات التوضيحية داخل البطاقات */
+.featureGraphic {
+  height: 220px;
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.graphicMockup {
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+}
+
+/* 1. تصميم رسم الـ Agent */
+.agentMockup {
+  background-color: #e6f0ff;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+.mockupBgScreen {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  right: 10px;
+  bottom: 50px;
+  background-color: #d0e3ff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.mapShape {
+  width: 70%;
+  height: 60%;
+  background-color: #10b981;
+  margin: 20px auto;
+  border-radius: 20px;
+}
+
+.mockupFloatingBox {
+  background: #ffffff;
+  color: #111;
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.boxText {
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.boxInputLine {
+  background: #f1f2f6;
+  padding: 6px 10px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 11px;
+  color: #666;
+}
+
+.arrowBtn {
+  background: #111;
+  color: #fff;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 10px;
+}
+
+/* 2. تصميم رسم الـ Interactive */
+.interactiveMockup {
+  background-color: #f1f1f4;
+  border: 1px solid #ddd;
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+}
+
+.editorTopBar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.playIcon {
+  font-size: 10px;
+  color: #333;
+}
+
+.renderBadge {
+  background: #0070f3;
+  color: white;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.editorCanvas {
+  flex: 1;
+  background: #fff;
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.05);
+}
+
+.shapeBubble {
+  position: absolute;
+  background: #dbeafe;
+  border-radius: 50%;
+}
+
+.b1 {
+  width: 50px;
+  height: 50px;
+  top: 20px;
+  left: 40px;
+}
+
+.b2 {
+  width: 40px;
+  height: 40px;
+  top: 40px;
+  left: 90px;
+}
+
+.b3 {
+  width: 60px;
+  height: 60px;
+  top: 10px;
+  left: 130px;
+}
+
+.editorTimelineBar {
+  height: 24px;
+  margin-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  position: relative;
+}
+
+.tTrack {
+  height: 6px;
+  border-radius: 3px;
+}
+
+.blueTrack {
+  background: #0070f3;
+  width: 40%;
+}
+
+.greenTrack {
+  background: #10b981;
+  width: 80%;
+}
+
+.timelinePin {
+  position: absolute;
+  top: 0;
+  left: 60%;
+  width: 2px;
+  height: 100%;
+  background: #ef4444;
+}
+
+/* 3. تصميم رسم الـ Programmatic */
+.programmaticMockup {
+  background: linear-gradient(135deg, #f3f3f6, #e5e5ea);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.codeBoxTilt {
+  background: #18181b;
+  border: 1px solid #333;
+  padding: 16px;
+  border-radius: 12px;
+  width: 80%;
+  transform: rotate(-5deg) skewX(-5deg);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.codeBadgePill {
+  background: #2563eb;
+  color: white;
+  font-size: 10px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  width: fit-content;
+}
+
+.codeTextLine {
+  font-family: monospace;
+  font-size: 12px;
+  color: #38bdf8;
+}
+
+/* محتوى النصوص والروابط */
+.featureContent {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.featureTitle {
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 1.2;
+  margin: 0;
+  color: #111113;
+}
+
+.highlight {
+  color: #71717a;
+}
+
+.featureDesc {
+  font-size: 15px;
+  color: #52525b;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.featureLinks {
+  display: flex;
+  gap: 20px;
+  margin-top: 12px;
+}
+
+.featureLinkItem {
+  color: #111113;
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color 0.2s;
+}
+
+.featureLinkItem:hover {
+  color: #0284c7;
+}
+
+.featureLinkItem:hover .arrow {
+  transform: translateX(4px);
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+/* الشريط السفلي */
+.featuresFooterBanner {
+  background: linear-gradient(135deg, #4b1b9e 0%, #6e22c9 50%, #8c2ee8 100%);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 16px;
+  padding: 24px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  font-size: 15px;
+  font-weight: 500;
+  color: #ffffff;
+  text-align: center;
+  box-shadow: 0 10px 30px rgba(107, 34, 201, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.featuresFooterBanner::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: #ffffff;
+  opacity: 0.8;
+}
+
+.footerIcon {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(4px);
+}
+
+.footerIconGit {
+  font-size: 18px;
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.1);
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  backdrop-filter: blur(4px);
+}
+
+/* التجاوب مع الشاشات (Responsive) */
+@media (max-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+}

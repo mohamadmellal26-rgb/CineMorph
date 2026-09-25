@@ -1,0 +1,411 @@
+/* ==========================================
+   Dual-Theme Video Editor (CSS Module)
+   Light Upload Screen + Dark Editor Workspace
+   ========================================== */
+
+:root {
+  /* متغيّرات صفحة الرفع (Light Theme) */
+  --upload-bg: #f8fafc;
+  --upload-card-bg: rgba(255, 255, 255, 0.9);
+  --upload-card-hover: #ffffff;
+  --upload-border: #e2e8f0;
+  --upload-text-primary: #0f172a;
+  --upload-text-secondary: #64748b;
+
+  /* متغيّرات صفحة المحرر (Dark Theme) */
+  --editor-bg: #0f0f12;
+  --editor-card-bg: #18181c;
+  --editor-card-hover: #222226;
+  --editor-border: #28282f;
+  --editor-text-primary: #f1f5f9;
+  --editor-text-secondary: #94a3b8;
+
+  /* الألوان الرئيسية المشتركة (Accent Colors) */
+  --accent-color: #6366f1;
+  --accent-hover: #4f46e5;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ------------------------------------------
+   1. شاشة الرفع (Light Theme - بيضاء ونظيفة)
+   ------------------------------------------ */
+.appHeaderSimple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 32px;
+  z-index: 10;
+}
+
+.headerLogo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logoIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.logoText {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--upload-text-primary);
+}
+
+.uploadPage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--upload-bg);
+  background-image: radial-gradient(circle at 50% 50%, rgba(99, 102, 241, 0.08) 0%, transparent 60%);
+}
+
+.uploadCard {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--upload-card-bg);
+  backdrop-filter: blur(12px);
+  border: 2px dashed var(--upload-border);
+  border-radius: 16px;
+  padding: 48px 32px;
+  max-width: 480px;
+  width: 90%;
+  text-align: center;
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05), 0 8px 10px -6px rgba(0, 0, 0, 0.01);
+  transition: all 0.25s ease;
+  cursor: pointer;
+}
+
+.uploadCard:hover,
+.dragging {
+  border-color: var(--accent-color);
+  background: var(--upload-card-hover);
+  box-shadow: 0 20px 30px -10px rgba(99, 102, 241, 0.15);
+}
+
+.uploadIconWrapper {
+  background: rgba(99, 102, 241, 0.08);
+  border: 1px solid rgba(99, 102, 241, 0.15);
+  padding: 18px;
+  border-radius: 50%;
+  margin-bottom: 20px;
+  color: var(--accent-color);
+}
+
+.uploadCard h2 {
+  font-size: 22px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--upload-text-primary);
+}
+
+.uploadCard p {
+  font-size: 14px;
+  color: var(--upload-text-secondary);
+  margin-bottom: 28px;
+  line-height: 1.5;
+}
+
+.uploadBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.25);
+}
+
+.uploadBtn:hover {
+  background-color: var(--accent-hover);
+  box-shadow: 0 6px 16px rgba(99, 102, 241, 0.35);
+}
+
+.uploadBtn:active {
+  transform: scale(0.97);
+}
+
+.fileInputHidden {
+  display: none;
+}
+
+/* ------------------------------------------
+   2. بيئة العمل والمحرر (Dark Theme - أسود داكن)
+   ------------------------------------------ */
+.editorPage {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background-color: var(--editor-bg);
+  color: var(--editor-text-primary);
+  overflow: hidden;
+  direction: rtl;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+.editorHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: var(--editor-card-bg);
+  border-bottom: 1px solid var(--editor-border);
+  height: 48px;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.editorHeaderLeft {
+  display: flex;
+  align-items: center;
+}
+
+.projectTitleHeader {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--editor-text-primary);
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--editor-bg);
+  color: var(--editor-text-primary);
+  border: 1px solid var(--editor-border);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.backBtn:hover {
+  background-color: var(--editor-card-hover);
+  border-color: #3b3b45;
+}
+
+/* هيكل المحرر الرئيسي */
+.editorContent {
+  display: flex;
+  flex-direction: row;
+  flex: 1;
+  gap: 8px;
+  padding: 8px;
+  overflow: hidden;
+  position: relative;
+}
+
+.mainWorkspace {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.previewSection {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.timelineSection {
+  height: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.inspectorSidebar {
+  width: 320px;
+  flex-shrink: 0;
+  height: 100%;
+  background-color: var(--editor-card-bg);
+  border-right: 1px solid var(--editor-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* ------------------------------------------
+   3. نافذة المعاينة بالثيم الأسود (Preview Controls)
+   ------------------------------------------ */
+.previewContainer {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  background-color: var(--editor-card-bg);
+  border: 1px solid var(--editor-border);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.previewToolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+  background-color: #121215;
+  border-bottom: 1px solid var(--editor-border);
+  height: 44px;
+  flex-shrink: 0;
+}
+
+.toolbarLeft {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.previewTitle {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--editor-text-primary);
+}
+
+.previewBadge {
+  font-size: 11px;
+  background-color: rgba(99, 102, 241, 0.15);
+  color: #818cf8;
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  font-weight: 500;
+}
+
+.toolbarRight {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.previewSelect {
+  background-color: var(--editor-bg);
+  color: var(--editor-text-primary);
+  border: 1px solid var(--editor-border);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 12px;
+  outline: none;
+  cursor: pointer;
+}
+
+.previewZoomControl {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--editor-bg);
+  border: 1px solid var(--editor-border);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+.previewZoomBtn {
+  background: none;
+  border: none;
+  color: var(--editor-text-secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  border-radius: 4px;
+}
+
+.previewZoomBtn:hover {
+  color: var(--editor-text-primary);
+  background-color: var(--editor-card-hover);
+}
+
+.previewZoomText {
+  font-size: 11px;
+  color: var(--editor-text-secondary);
+  min-width: 36px;
+  text-align: center;
+}
+
+.previewExportBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--accent-color);
+  color: #ffffff;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.previewExportBtn:hover:not(:disabled) {
+  background-color: var(--accent-hover);
+}
+
+.previewExportBtn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.spinIcon {
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.previewViewport {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  min-height: 0;
+  padding: 16px;
+  background-color: #050507;
+  overflow: hidden;
+  position: relative;
+}
+
+.previewCanvasWrapper {
+  max-width: 100%;
+  max-height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  border-radius: 6px;
+  overflow: hidden;
+  background-color: #000000;
+}

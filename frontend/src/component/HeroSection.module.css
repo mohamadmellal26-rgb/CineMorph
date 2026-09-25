@@ -1,0 +1,220 @@
+.heroSection {
+  background: linear-gradient(135deg, #4b1b9e 0%, #6e22c9 50%, #8c2ee8 100%);
+  background-color: #5c22c9;
+  color: #ffffff;
+  padding: 80px 24px;
+  overflow: hidden;
+  position: relative;
+  min-height: 550px;
+  display: flex;
+  align-items: center;
+}
+
+.heroContainer {
+  max-width: 1300px;
+  margin: 0 auto;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  align-items: center;
+  gap: 60px;
+}
+
+/* محتوى النصوص */
+.heroContent {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  z-index: 2;
+}
+
+.heroTitle {
+  font-size: 52px;
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -1px;
+  margin: 0;
+  color: #ffffff;
+}
+
+.heroDescription {
+  font-size: 18px;
+  line-height: 1.5;
+  color: #e2d9fc;
+  max-width: 480px;
+  margin: 0;
+}
+
+.heroAction {
+  margin-top: 10px;
+}
+
+.heroCtaBtn {
+  background-color: #ffffff;
+  color: #1b1134;
+  font-family: inherit;
+  font-size: 16px;
+  font-weight: 600;
+  padding: 14px 28px;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+}
+
+.heroCtaBtn:hover {
+  background-color: #f3f0ff;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* قسم العرض البصري (Mockup) */
+.heroVisual {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.mockupContainer {
+  position: relative;
+  width: 100%;
+  max-width: 650px;
+  aspect-ratio: 16 / 10;
+}
+
+.appWindowMockup {
+  width: 100%;
+  height: 100%;
+  background-color: #1b162f;
+  border-radius: 12px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+}
+
+.mockupScreen {
+  flex: 1;
+  background-color: #120e23;
+  border-radius: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 12px;
+  overflow: hidden;
+}
+
+.mockupVideoPreview {
+  flex: 1;
+  background: linear-gradient(135deg, #3d3460 0%, #221c3b 100%);
+  border-radius: 6px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.previewPerson {
+  width: 500px;
+  height: 240px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+}
+
+.previewPersonImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.mockupTimeline {
+  height: 40px;
+  background-color: #1b162f;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4px;
+  padding: 0 8px;
+}
+
+.timelineTrack {
+  height: 6px;
+  background-color: #8c2ee8;
+  border-radius: 3px;
+  width: 80%;
+}
+
+.shortTrack {
+  width: 50%;
+  background-color: #4b28d4;
+}
+
+/* عناصر تجميلية عائمة */
+.floatingElement {
+  position: absolute;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  z-index: 5;
+}
+
+.element1 {
+  bottom: -15px;
+  left: 20px;
+  width: 110px;
+  height: 36px;
+  background: linear-gradient(90deg, #7b3fe4, #a062f8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transform: rotate(-3deg);
+}
+
+.element2 {
+  bottom: 10px;
+  right: -20px;
+  width: 140px;
+  height: 70px;
+  background: linear-gradient(135deg, #2b60e4, #4a8bf8);
+  border-radius: 12px;
+  transform: rotate(8deg);
+}
+
+/* التجاوب مع الشاشات الصغيرة (Responsive) */
+@media (max-width: 968px) {
+  .heroContainer {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .heroContent {
+    align-items: center;
+  }
+
+  .heroDescription {
+    max-width: 100%;
+  }
+
+  .heroTitle {
+    font-size: 38px;
+  }
+
+  .heroVisual {
+    justify-content: center;
+  }
+}
