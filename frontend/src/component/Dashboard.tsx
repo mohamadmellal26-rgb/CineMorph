@@ -73,7 +73,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       onNewVideo();
     }
     setTimeout(() => {
-      window.location.href = 'https://cinemorph1-kngqb503v-mohamadmellal26-3506s-projects.vercel.app/editor';
+      window.location.href = 'https://cinemorph1-kv0310qhl-mohamadmellal26-3506s-projects.vercel.app/editor';
     }, 1200);
   };
 
