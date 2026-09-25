@@ -1,4 +1,4 @@
-FROM golang:1.22-alpine AS builder
+FROM golang:alpine AS builder
 
 # تثبيت gcc و musl-dev لدعم CGO و SQLite3
 RUN apk add --no-cache gcc musl-dev
