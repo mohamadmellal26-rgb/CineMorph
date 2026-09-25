@@ -10,9 +10,9 @@ RUN go mod download
 
 COPY . .
 
-# تفعيل CGO لبناء SQLite
+# تفعيل CGO والتوجه لمجلد cmd للبناء
 ENV CGO_ENABLED=1
-RUN GOOS=linux go build -o main .
+RUN GOOS=linux go build -o main ./cmd
 
 FROM alpine:latest
 WORKDIR /root/
