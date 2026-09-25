@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
   Home as HomeIcon,
   LayoutGrid,
@@ -66,6 +67,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const [searchQuery, setSearchQuery] = useState<string>('');
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const navigate = useNavigate(); // استخدام الـ hook للتنقل الداخلي الآمن
 
   const handleCreateNewVideo = () => {
     setIsLoading(true);
@@ -73,7 +75,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       onNewVideo();
     }
     setTimeout(() => {
-      window.location.href = 'https://cinemorph1-kv0310qhl-mohamadmellal26-3506s-projects.vercel.app/editor';
+      navigate('/editor'); // التوجيه السليم لمسار المحرر دون كسر الـ SPA أو استخدام روابط مطلقة
     }, 1200);
   };
 
