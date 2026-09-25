@@ -73,7 +73,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       onNewVideo();
     }
     setTimeout(() => {
-      window.location.href = 'http://localhost:5173/editor';
+      window.location.href = '/editor';
     }, 1200);
   };
 
