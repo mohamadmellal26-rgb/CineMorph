@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import styles from './Login.module.css';
 
+// تحديد عنوان الـ API الديناميكي (يعتمد على الخادم المستضيف على Render مع التوافق مع التطوير المحلي)
+const API_BASE_URL = import.meta.env?.VITE_API_URL || 'https://cinemorph.onrender.com';
+
 export const Login: React.FC = () => {
   const [isSignUp, setIsSignUp] = useState<boolean>(false);
   const [username, setUsername] = useState<string>('');
@@ -17,7 +20,9 @@ export const Login: React.FC = () => {
     setErrorMessage('');
     setSuccessMessage('');
 
-    const endpoint = isSignUp ? 'http://localhost:8080/api/signup' : 'http://localhost:8080/api/login';
+    const endpoint = isSignUp 
+      ? `${API_BASE_URL}/api/signup` 
+      : `${API_BASE_URL}/api/login`;
 
     const requestBody = isSignUp 
       ? { username, email, password } 
